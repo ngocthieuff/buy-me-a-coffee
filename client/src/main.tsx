@@ -8,6 +8,7 @@ import {
 import { render } from "react-dom";
 import { Welcome } from './components';
 import Explore from './components/Explore';
+import { BuyCoffee } from './components/BuyCoffee';
 
 const rootElement = document.getElementById("root");
 render(
@@ -16,6 +17,7 @@ render(
       <Route path="/" element={<App />} />
       <Route path="welcome" element={<Welcome />} />
       <Route path="explore" element={<Explore />} />
+      <Route path="buy-coffee" element={<BuyCoffee />} />
     </Routes>
   </BrowserRouter>,
   rootElement
