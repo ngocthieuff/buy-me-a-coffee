@@ -5,9 +5,7 @@ import dummyData from "../../utils/dummyData";
 import { shortenAddress } from "../../utils/shortenAddress";
 
 
-const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, gifurl, amount, url } : { addressTo: string, addressFrom: string, timestamp: any, message: any, gifurl: any, amount: any, url: any }) => {
-    const gifUrl = useFetch({ gifurl });
-
+const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, gifurl, amount} : { addressTo: string, addressFrom: string, timestamp: any, message: any, gifurl: any, amount: any, url: any }) => {
     return (
         <div className="bg-[#181918] m-4 flex flex-1
           2xl:min-w-[450px]
@@ -29,12 +27,12 @@ const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, gifurl, 
               {message && (
                 <>
                   <br />
-                  <p className="text-white text-base">Message: {message}</p>
+                  <p className="text-white font-bold">{message}</p>
                 </>
               )}
             </div>
             <img
-              src={gifUrl || url}
+              src={gifurl}
               alt="nature"
               className="w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover"
             />
@@ -63,7 +61,7 @@ const Transactions = () => {
         )}
 
         <div className="flex flex-wrap justify-center items-center mt-10">
-        {[...dummyData, ...context?.transactions].reverse().map((transaction, i) => (
+        {[...context?.transactions].reverse().map((transaction, i) => (
             <TransactionsCard key={i} {...transaction} />
           ))}
 

@@ -9,6 +9,7 @@ const Explore = () => {
         <div className="gradient-bg-welcome">
           <Navbar />
           <Welcome />
+          <Transactions/>
         </div>
         <Footer />
       </div>
