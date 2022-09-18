@@ -22,11 +22,11 @@ const Input = ({placeholder, name, type, handleChange} : {placeholder: string, n
 const Welcome = () => {
 
     const context = useContext(TransactionContext);
-    
+        
     const handleSubmit = () => {
-        const { addressTo, amount, keyword, message } = context?.formData;
+        const { addressTo, amount, gifurl, message } = context?.formData;
 
-        if (!addressTo || !amount || !keyword || !message) {
+        if (!addressTo || !amount || !gifurl || !message) {
             return;
         }
 
@@ -86,8 +86,8 @@ const Welcome = () => {
                         <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
                             <Input placeholder="Address To" name="addressTo" type="text" handleChange={context?.handleChange} />
                             <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={context?.handleChange} />
-                            <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={context?.handleChange} />
-                            <Input placeholder="Enter Message" name="message" type="text" handleChange={context?.handleChange} />
+                            <Input placeholder="Gif URL" name="gifurl" type="text" handleChange={context?.handleChange} />
+                            <Input placeholder="Message" name="message" type="text" handleChange={context?.handleChange} />
 
                             <div className="h-[1px] w-full bg-gray-400 my-2" />
 

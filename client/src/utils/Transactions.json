@@ -18,7 +18,7 @@
 			},
 			{
 				"internalType": "string",
-				"name": "keyword",
+				"name": "gifurl",
 				"type": "string"
 			}
 		],
@@ -63,7 +63,7 @@
 			{
 				"indexed": false,
 				"internalType": "string",
-				"name": "keyword",
+				"name": "gifurl",
 				"type": "string"
 			}
 		],
@@ -103,7 +103,7 @@
 					},
 					{
 						"internalType": "string",
-						"name": "keyword",
+						"name": "gifurl",
 						"type": "string"
 					}
 				],

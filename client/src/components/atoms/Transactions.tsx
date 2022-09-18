@@ -5,8 +5,8 @@ import dummyData from "../../utils/dummyData";
 import { shortenAddress } from "../../utils/shortenAddress";
 
 
-const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url } : { addressTo: string, addressFrom: string, timestamp: any, message: any, keyword: any, amount: any, url: any }) => {
-    const gifUrl = useFetch({ keyword });
+const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, gifurl, amount, url } : { addressTo: string, addressFrom: string, timestamp: any, message: any, gifurl: any, amount: any, url: any }) => {
+    const gifUrl = useFetch({ gifurl });
 
     return (
         <div className="bg-[#181918] m-4 flex flex-1

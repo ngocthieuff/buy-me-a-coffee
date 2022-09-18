@@ -37,7 +37,7 @@ const getEthereumContract = () => {
 export const TransactionProvider = ({ children } : { children: any }) => {
 
     const [currentAccount, setCurrentAccount] = useState("");
-    const [formData, setFormData] = useState({ addressTo: '', amount: '', keyword: '', message: '' });
+    const [formData, setFormData] = useState({ addressTo: '', amount: '', gifurl: '', message: '' });
     const [isLoading, setIsLoading] = useState(false);
     const [transactionCount, setTransactionCount] = useState(localStorage.getItem('transactionsCount'));
     const [transactions, setTransactions] = useState([]);
@@ -58,7 +58,7 @@ export const TransactionProvider = ({ children } : { children: any }) => {
               addressFrom: transaction.sender,
               timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
               message: transaction.message,
-              keyword: transaction.keyword,
+              gifurl: transaction.gifurl,
               amount: parseInt(transaction.amount._hex) / (10 ** 18)
             }));
     
@@ -108,7 +108,7 @@ export const TransactionProvider = ({ children } : { children: any }) => {
         try {
             if(!ethereum) return alert("Please install metamask");
             
-            const { addressTo, amount, keyword, message } = formData;
+            const { addressTo, amount, gifurl, message } = formData;
             const transactionContract = 
             getEthereumContract();
             const parsedAmount = ethers.utils.parseEther(amount);
@@ -123,7 +123,8 @@ export const TransactionProvider = ({ children } : { children: any }) => {
                 }]
             });
 
-            const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, keyword, message);
+            // function addToBlockchain(address payable receiver, uint amount, string memory message, string memory gifurl) public {
+            const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, gifurl);
 
             setIsLoading(true);
             console.log(`Loading ${transactionHash.hash}`);
