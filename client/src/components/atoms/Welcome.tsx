@@ -22,7 +22,7 @@ const Input = ({placeholder, name, type, handleChange} : {placeholder: string, n
 const Welcome = () => {
 
     const context = useContext(TransactionContext);
-
+    
     const handleSubmit = () => {
         const { addressTo, amount, keyword, message } = context?.formData;
 
