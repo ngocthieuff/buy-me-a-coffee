@@ -1,4 +1,4 @@
-import React, { ProviderProps, useEffect, useState } from 'react';
+import React, { ProviderProps, useEffect, useLayoutEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
 import { contractABI, contractAddress } from '../utils/constants';
@@ -148,7 +148,7 @@ export const TransactionProvider = ({ children } : { children: any }) => {
     useEffect(() => {
         checkIfWalletIsConnected();
         getAllTransactions();
-    }, [])
+    }, [transactions])
 
     const conttextType: ContextType = {
         connectWallet: connectWallet,
